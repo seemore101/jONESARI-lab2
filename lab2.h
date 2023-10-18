@@ -8,16 +8,6 @@
  ***************************************************************/
 char* ipc_create(int size);
 
-/**************************************************************
- *  ipc_read - Opens a shared memory object called lab2 and
- *             returns a char pointer to the memory shared
- *             memory object.
- * 
- *  size - is the size of the memory object to create.
- *   
- ***************************************************************/
-char* ipc_read(int size);
-
 
 /****************************************************************
  *  elapsed_time - calculates the elapsed time given a start_time
