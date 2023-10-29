@@ -1,12 +1,13 @@
 // TODO: add the appropriate header files here
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <sys/shm.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <unistd.h>
-#include <string.h>
-#include "lab2.h"
 /**************************************************************
  *  ipc_create - creates a shared memory object called lab2 and
  *               returns a char pointer to the memory shared
