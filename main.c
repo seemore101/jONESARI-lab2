@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <string.h>
 #include "lab2.h"
+
 /************************************************************\
  * get_arguments - returns the command line arguments not
  *                 including this file in an array with the
@@ -48,7 +49,6 @@ int main(int argc, char** argv)
     
     // TODO: call ipc_create to create shared memory region to which parent
     //       child have access.
-    
     ipc_ptr = ipc_create(sizeof(start_time));
 
     /* fork a child process */
@@ -67,7 +67,6 @@ int main(int argc, char** argv)
         // execute execvp()
         command_args = get_arguments(argc,argv);
         execvp(command_args[0],command_args);
-
     }
     else { /* parent process */
         // TODO: have parent wait and get status of child.
@@ -76,7 +75,7 @@ int main(int argc, char** argv)
         // TODO: get the current time using gettimeofday
         gettimeofday(&current_time,NULL);
         // TODO: read the start time from IPC
-        memcpy(&start_time,ipc_ptr,sizeof(start_time));   
+        memcpy(&start_time,ipc_ptr,sizeof(start_time));
         // TODO: close IPC
         ipc_close();
         // NOTE: DO NOT ALTER THE LINE BELOW.
