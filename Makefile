@@ -1,11 +1,13 @@
-$(CC) = gcc
-time: main.o ipc.o time.o
-	$(CC) -o $@ $?
-time.o: time.c
-	$(CC) -c $?
-main.o: main.c
-	$(CC) -c $?
-ipc.o: ipc.c
-	$(CC) -c $?
+CC = gcc
+SRC = main.c ipc.c time.c
+OBJ = $(SRC:.c=.o)
+EXEC = time
+
+$(EXEC): $(OBJ)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) -c $<
+
 clean:
-	rm -f *.o
+	rm -f $(OBJ) $(EXEC)
